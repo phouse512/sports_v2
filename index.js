@@ -80,6 +80,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash());
 
+app.use(function(req, res, next){
+	res.locals.user = req.user;
+	next();
+});
+
 // register routes
 require('./routes.js')(app, passport);
 
