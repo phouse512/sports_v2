@@ -6,9 +6,12 @@ var http = require('http'),
 	passport = require('passport'),
 	flash = require('connect-flash');
 
-var credentials = require('./credentials.js');
+var credentials = require('./credentials.js'),
+	seedCategory = require('./models/seed_data/seed_categories');
 
 var app = express();
+
+require('./lib/passport.js')(passport);
 
 var handlebars = require('express3-handlebars').create({ 
 	defaultLayout: 'main',
@@ -84,6 +87,9 @@ app.use(function(req, res, next){
 	res.locals.user = req.user;
 	next();
 });
+
+// seed basic data
+seedCategory.seedCategory();
 
 // register routes
 require('./routes.js')(app, passport);

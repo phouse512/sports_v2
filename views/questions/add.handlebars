@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-lg-6 col-lg-offset-2">
+		<form action="" method="post">
+			<div class="form-group">
+				<label>Prompt</label>
+				<input type="text" class="form-control" name="prompt">
+			</div>
+			<div class="form-group">
+				<label>Possible Answers</label>
+				<input type="text" class="form-control possible-answer" name="answers[]">
+				<a href="#" class="btn btn-primary btn-block" id="addAnswer">+</a>
+			</div>
+			<div class="form-group">
+				<label>End time</label>
+				<input id="endTime" type="text" class="form-control" name="endTime">
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Add New Poll</button>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	sports.question.addQuestion();
+</script>

@@ -1,5 +1,6 @@
-var main = require('./handlers/main.js'),
-	users = require('./handlers/users');
+var main = require('./handlers/main'),
+	users = require('./handlers/users'),
+	questions = require('./handlers/questions');
 
 module.exports = function(app, passport){
 	
@@ -8,14 +9,14 @@ module.exports = function(app, passport){
 
 	app.get('/login', users.login);
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/game',
+		successRedirect: '/profile',
 		failureRedirect: '/login',
 		failureFlash: true,
 	}));
 
 	app.get('/signup', users.signup);
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/game',
+		successRedirect: '/profile',
 		failureRedirect: '/signup',
 		failureFlash: true,
 	}));
@@ -23,6 +24,9 @@ module.exports = function(app, passport){
 	app.get('/profile', isLoggedIn, users.profile);
 
 	app.get('/logout', users.logout);
+
+	app.get('/questions/add', isLoggedIn, questions.add);
+	app.post('/questions/add', isLoggedIn, questions.addSubmit);
 }
 
 function isLoggedIn(req, res, next){
