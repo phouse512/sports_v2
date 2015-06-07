@@ -1,0 +1,15 @@
+.category {
+	background: #8b9dc3;
+	height: 50px;
+	margin-right: 10px;
+	text-align: center;
+	border-radius: 5px;
+	color: #f7f7f7;
+	cursor: pointer;
+	padding-top: 15px;
+}
+
+.category-selected {
+	background: #3b5998;
+	border: 1px solid black;
+}

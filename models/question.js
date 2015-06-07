@@ -5,10 +5,11 @@ var questionSchema = mongoose.Schema({
 	answers: [ String ],
 	postTime: { type: Date, default: Date.now },
 	endTime: Date,
-	weight: Number,
+	weight: { type: Number, default: 1 },
 	prompt: String,
 	rightAnswer: String,
 	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
+	poster: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
 var Question = mongoose.model('Question', questionSchema);

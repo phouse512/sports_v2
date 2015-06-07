@@ -25,8 +25,11 @@ module.exports = function(app, passport){
 
 	app.get('/logout', users.logout);
 
+	// questions api
 	app.get('/questions/add', isLoggedIn, questions.add);
 	app.post('/questions/add', isLoggedIn, questions.addSubmit);
+
+	app.get('/questions', questions.all);
 }
 
 function isLoggedIn(req, res, next){
