@@ -10,6 +10,7 @@ var questionSchema = mongoose.Schema({
 	rightAnswer: String,
 	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
 	poster: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+	votes: Number,
 });
 
 var Question = mongoose.model('Question', questionSchema);

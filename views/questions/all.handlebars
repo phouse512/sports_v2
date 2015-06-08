@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+		<h4>All Polls</h4>
+		<table class="table table-striped">
+			<tr>
+				<th>
+					poll
+				</th>
+				<th>
+					ends on..
+				</th>
+				<th>
+					current votes
+				</th>
+				<th>
+					categories
+				</th>
+			</tr>
+			{{#each questions }}
+			<tr>
+				<td>
+				{{ this.prompt }}
+				</td>
+				<td>
+				{{ this.endTime }}
+				</td>
+				<td>
+				{{ this.votes }}
+				</td>
+				<td>
+				{{#each this.categories }}
+					<span class="label label-primary">{{ this.name }}</span>
+				{{/each}}
+				</td>
+
+			</tr>
+			{{/each }}
+		<table>
+	</div>
+</div>

@@ -30,6 +30,7 @@ module.exports = function(app, passport){
 	app.post('/questions/add', isLoggedIn, questions.addSubmit);
 
 	app.get('/questions', questions.all);
+	app.get('/questions/:id', questions.question);
 }
 
 function isLoggedIn(req, res, next){
