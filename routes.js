@@ -33,6 +33,8 @@ module.exports = function(app, passport){
 	app.get('/questions/:id', questions.question);
 }
 
+// check if logged in
+
 function isLoggedIn(req, res, next){
 
 	//if user is authenticated in session
